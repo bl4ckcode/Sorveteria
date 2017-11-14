@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Sorveteria</string>
+    <string name="qtd_leite">Qual a quantidade de leite necessária para a produção dos sorvetes e picolés?</string>
+    <string name="qtd_leite_bola_sorvete">Qual a quantidade necessária de leite (em ml) para produzir uma bola de sorvete?</string>
+    <string name="qtd_leite_bola_picole">E para produzir um picolé cremoso?</string>
+    <string name="qtd_hora">Qual o total de horas disponível para produção?</string>
+    <string name="qtd_hora_sorvete">Qual o tempo necessário para produzir uma bola de sorvete?</string>
+    <string name="qtd_hora_picole_cremoso">E para o picolé cremoso?</string>
+    <string name="qtd_hora_picole_fruta">E para o picolé de fruta?</string>
+    <string name="qtd_maquina_congelamento">A máquina de congelamento limita em quantas unidades a capacidade de produção diária de picolés?</string>
+    <string name="qtd_freezers_armazenamento">A quantidade de freezers destinados ao armazenamento de sorvete limita em quantas bolas de sorvete a produção diária de sorvetes?</string>
+    <string name="qtd_demanda_sorvete">Qual a demanda de bolas de sorvete por dia?</string>
+    <string name="qtd_demanda_picoles_cremosos">E de picolés cremosos?</string>
+    <string name="qtd_demanda_picoles_fruta">E de picolés de fruta?</string>
+    <string name="calcular_solucao">Calcular solução</string>
+</resources>
