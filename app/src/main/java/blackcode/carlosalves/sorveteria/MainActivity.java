@@ -10,7 +10,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -31,6 +33,7 @@ import java.io.UnsupportedEncodingException;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ScrollView scrollLayout;
     private EditText edtQtdLucroSorvete;
     private EditText edtQtdLucroPicoleCremoso;
     private EditText edtQtdLucroPicoleFruta;
@@ -46,6 +49,23 @@ public class MainActivity extends AppCompatActivity {
     private EditText edtQtdDemandaSorvete;
     private EditText edtQtdDemandaPicoleFruta;
     private EditText edtQtdDemandaPicoleCremoso;
+
+    private TextView tvQtdLucroSorvete;
+    private TextView tvQtdLucroPicoleCremoso;
+    private TextView tvQtdLucroPicoleFruta;
+    private TextView tvQtdLeite;
+    private TextView tvQtdLeiteBolaSorvete;
+    private TextView tvQtdLeitePicoleCremoso;
+    private TextView tvQtdHorasProducao;
+    private TextView tvQtdHorasBolaSorvete;
+    private TextView tvQtdHorasBolaPicoleCremoso;
+    private TextView tvQtdHorasBolaPicoleFruta;
+    private TextView tvQtdMcUnidadePicole;
+    private TextView tvQtdFzsBolaSorvete;
+    private TextView tvQtdDemandaSorvete;
+    private TextView tvQtdDemandaPicoleFruta;
+    private TextView tvQtdDemandaPicoleCremoso;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,178 +98,243 @@ public class MainActivity extends AppCompatActivity {
         edtQtdDemandaSorvete = findViewById(R.id.edt_qtd_demanda_sorvete);
         edtQtdDemandaPicoleFruta = findViewById(R.id.edt_qtd_demanda_picole_fruta);
         edtQtdDemandaPicoleCremoso = findViewById(R.id.edt_qtd_demanda_picole_cremoso);
+        tvQtdLucroSorvete = findViewById( R.id.tv_qtd_lucro_sorvete );
+        tvQtdLucroPicoleCremoso = findViewById( R.id.tv_qtd_lucro_picole_cremoso );
+        tvQtdLucroPicoleFruta = findViewById( R.id.tv_qtd_lucro_picole_fruta );
+        tvQtdLeite = findViewById( R.id.tv_qtd_leite );
+        tvQtdLeiteBolaSorvete = findViewById( R.id.tv_qtd_leite_bola_sorvete );
+        tvQtdLeitePicoleCremoso = findViewById( R.id.tv_qtd_leite_picole_cremoso );
+        tvQtdHorasProducao = findViewById( R.id.tv_qtd_horas_producao );
+        tvQtdHorasBolaSorvete = findViewById( R.id.tv_qtd_horas_bola_sorvete );
+        tvQtdHorasBolaPicoleCremoso = findViewById( R.id.tv_qtd_horas_bola_picole_cremoso );
+        tvQtdHorasBolaPicoleFruta = findViewById( R.id.tv_qtd_horas_bola_picole_fruta );
+        tvQtdMcUnidadePicole = findViewById( R.id.tv_qtd_mc_unidade_picole );
+        tvQtdFzsBolaSorvete = findViewById( R.id.tv_qtd_fzs_bola_sorvete );
+        tvQtdDemandaSorvete = findViewById( R.id.tv_qtd_demanda_sorvete );
+        tvQtdDemandaPicoleFruta = findViewById( R.id.tv_qtd_demanda_picole_fruta );
+        tvQtdDemandaPicoleCremoso = findViewById( R.id.tv_qtd_demanda_picole_cremoso );
+        scrollLayout = findViewById(R.id.scroll_layout);
+        
         TextView txtViewCalcularSolucao = findViewById(R.id.txtView_calcular_solucao);
         txtViewCalcularSolucao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
-                    String url = "https://pls69.herokuapp.com/fuckCristiane";
+                if (edtQtdLucroSorvete.getText().toString().equals("")) {
+                    scrollLayout.smoothScrollTo(0, tvQtdLucroSorvete.getTop());
+                    Toast.makeText(MainActivity.this, getString(R.string.preencher_campos), Toast.LENGTH_SHORT).show();
+                } else if (edtQtdLucroPicoleCremoso.getText().toString().equals("")) {
+                    scrollLayout.smoothScrollTo(0, tvQtdLucroPicoleCremoso.getTop());
+                    Toast.makeText(MainActivity.this, getString(R.string.preencher_campos), Toast.LENGTH_SHORT).show();
+                } else if (edtQtdLucroPicoleFruta.getText().toString().equals("")) {
+                    scrollLayout.smoothScrollTo(0, tvQtdLucroPicoleFruta.getTop());
+                    Toast.makeText(MainActivity.this, getString(R.string.preencher_campos), Toast.LENGTH_SHORT).show();
+                } else if (edtQtdLeite.getText().toString().equals("")) {
+                    scrollLayout.smoothScrollTo(0, tvQtdLeite.getTop());
+                    Toast.makeText(MainActivity.this, getString(R.string.preencher_campos), Toast.LENGTH_SHORT).show();
+                } else if (edtQtdLeiteBolaSorvete.getText().toString().equals("")) {
+                    scrollLayout.smoothScrollTo(0, tvQtdLeiteBolaSorvete.getTop());
+                    Toast.makeText(MainActivity.this, getString(R.string.preencher_campos), Toast.LENGTH_SHORT).show();
+                } else if (edtQtdLeitePicoleCremoso.getText().toString().equals("")) {
+                    scrollLayout.smoothScrollTo(0, tvQtdLeitePicoleCremoso.getTop());
+                    Toast.makeText(MainActivity.this, getString(R.string.preencher_campos), Toast.LENGTH_SHORT).show();
+                } else if (edtQtdHorasProducao.getText().toString().equals("")) {
+                    scrollLayout.smoothScrollTo(0, tvQtdHorasProducao.getTop());
+                    Toast.makeText(MainActivity.this, getString(R.string.preencher_campos), Toast.LENGTH_SHORT).show();
+                } else if (edtQtdHorasBolaSorvete.getText().toString().equals("")) {
+                    scrollLayout.smoothScrollTo(0, tvQtdHorasBolaSorvete.getTop());
+                    Toast.makeText(MainActivity.this, getString(R.string.preencher_campos), Toast.LENGTH_SHORT).show();
+                } else if (edtQtdHorasBolaPicoleCremoso.getText().toString().equals("")) {
+                    scrollLayout.smoothScrollTo(0, tvQtdHorasBolaPicoleCremoso.getTop());
+                    Toast.makeText(MainActivity.this, getString(R.string.preencher_campos), Toast.LENGTH_SHORT).show();
+                } else if (edtQtdHorasBolaPicoleFruta.getText().toString().equals("")) {
+                    scrollLayout.smoothScrollTo(0, tvQtdHorasBolaPicoleFruta.getTop());
+                    Toast.makeText(MainActivity.this, getString(R.string.preencher_campos), Toast.LENGTH_SHORT).show();
+                } else if (edtQtdMcUnidadePicole.getText().toString().equals("")) {
+                    scrollLayout.smoothScrollTo(0, tvQtdMcUnidadePicole.getTop());
+                    Toast.makeText(MainActivity.this, getString(R.string.preencher_campos), Toast.LENGTH_SHORT).show();
+                } else if (edtQtdFzsBolaSorvete.getText().toString().equals("")) {
+                    scrollLayout.smoothScrollTo(0, tvQtdFzsBolaSorvete.getTop());
+                    Toast.makeText(MainActivity.this, getString(R.string.preencher_campos), Toast.LENGTH_SHORT).show();
+                } else if (edtQtdDemandaSorvete.getText().toString().equals("")) {
+                    scrollLayout.smoothScrollTo(0, tvQtdDemandaSorvete.getTop());
+                    Toast.makeText(MainActivity.this, getString(R.string.preencher_campos), Toast.LENGTH_SHORT).show();
+                } else if (edtQtdDemandaPicoleFruta.getText().toString().equals("")) {
+                    scrollLayout.smoothScrollTo(0, tvQtdDemandaPicoleFruta.getTop());
+                    Toast.makeText(MainActivity.this, getString(R.string.preencher_campos), Toast.LENGTH_SHORT).show();
+                } else if (edtQtdDemandaPicoleCremoso.getText().toString().equals("")) {
+                    scrollLayout.smoothScrollTo(0, tvQtdDemandaPicoleCremoso.getTop());
+                    Toast.makeText(MainActivity.this, getString(R.string.preencher_campos), Toast.LENGTH_SHORT).show();
+                } else {
 
-                    final JSONObject json = new JSONObject();
-                    json.put("maxmin", "MAX");
+                    try {
+                        RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
+                        String url = "https://pls69.herokuapp.com/fuckCristiane";
 
-                    JSONArray jsonArrayZ = new JSONArray();
-                    jsonArrayZ.put(Double.parseDouble(edtQtdLucroSorvete.getText().toString()));
-                    jsonArrayZ.put(Double.parseDouble(edtQtdLucroPicoleCremoso.getText().toString()));
-                    jsonArrayZ.put(Double.parseDouble(edtQtdLucroPicoleFruta.getText().toString()));
+                        final JSONObject json = new JSONObject();
+                        json.put("maxmin", "MAX");
 
-                    json.put("Z", jsonArrayZ);
+                        JSONArray jsonArrayZ = new JSONArray();
+                        jsonArrayZ.put(Double.parseDouble(edtQtdLucroSorvete.getText().toString()));
+                        jsonArrayZ.put(Double.parseDouble(edtQtdLucroPicoleCremoso.getText().toString()));
+                        jsonArrayZ.put(Double.parseDouble(edtQtdLucroPicoleFruta.getText().toString()));
 
-                    json.put("rests", 0);
+                        json.put("Z", jsonArrayZ);
 
-                    int rests = 0;
+                        json.put("rests", 0);
 
-                    JSONArray jsonArrayR0 = new JSONArray();
-                    jsonArrayR0.put(Double.parseDouble(edtQtdLeiteBolaSorvete.getText().toString()));
-                    jsonArrayR0.put(Double.parseDouble(edtQtdLeitePicoleCremoso.getText().toString()));
-                    jsonArrayR0.put(0.0);
-                    jsonArrayR0.put("<=");
-                    jsonArrayR0.put(Double.parseDouble(edtQtdLeite.getText().toString()) * 1000);
+                        int rests = 0;
 
-                    json.put("R" + rests, jsonArrayR0);
-                    rests++;
+                        JSONArray jsonArrayR0 = new JSONArray();
+                        jsonArrayR0.put(Double.parseDouble(edtQtdLeiteBolaSorvete.getText().toString()));
+                        jsonArrayR0.put(Double.parseDouble(edtQtdLeitePicoleCremoso.getText().toString()));
+                        jsonArrayR0.put(0.0);
+                        jsonArrayR0.put("<=");
+                        jsonArrayR0.put(Double.parseDouble(edtQtdLeite.getText().toString()) * 1000);
 
-                    JSONArray jsonArrayR1 = new JSONArray();
-                    jsonArrayR1.put(Double.parseDouble(edtQtdHorasBolaSorvete.getText().toString()));
-                    jsonArrayR1.put(0.0);
-                    jsonArrayR1.put(0.0);
-                    jsonArrayR1.put("<=");
-                    jsonArrayR1.put(Double.parseDouble(edtQtdHorasProducao.getText().toString()) * 60);
-
-                    json.put("R" + rests, jsonArrayR1);
-                    rests++;
-
-                    JSONArray jsonArrayR2 = new JSONArray();
-                    jsonArrayR2.put(0.0);
-                    jsonArrayR2.put(Double.parseDouble(edtQtdHorasBolaPicoleCremoso.getText().toString()));
-                    jsonArrayR2.put(Double.parseDouble(edtQtdHorasBolaPicoleFruta.getText().toString()));
-                    jsonArrayR2.put("<=");
-                    jsonArrayR2.put(Double.parseDouble(edtQtdHorasProducao.getText().toString()) * 60);
-
-                    json.put("R" + rests, jsonArrayR2);
-                    rests++;
-
-                    JSONArray jsonArrayR3 = new JSONArray();
-                    jsonArrayR3.put(0.0);
-                    jsonArrayR3.put(1.0);
-                    jsonArrayR3.put(1.0);
-                    jsonArrayR3.put("<=");
-                    jsonArrayR3.put(Double.parseDouble(edtQtdMcUnidadePicole.getText().toString()));
-
-                    json.put("R" + rests, jsonArrayR3);
-                    rests++;
-
-                    JSONArray jsonArrayR4 = new JSONArray();
-                    jsonArrayR4.put(1.0);
-                    jsonArrayR4.put(0.0);
-                    jsonArrayR4.put(0.0);
-                    jsonArrayR4.put("<=");
-                    jsonArrayR4.put(Double.parseDouble(edtQtdFzsBolaSorvete.getText().toString()));
-
-                    json.put("R" + rests, jsonArrayR4);
-                    rests++;
-
-                    Double demandaSorvete = Double.parseDouble(edtQtdDemandaSorvete.getText().toString());
-                    if (demandaSorvete != 0) {
-                        JSONArray jsonArrayR5 = new JSONArray();
-                        jsonArrayR5.put(1.0);
-                        jsonArrayR5.put(0.0);
-                        jsonArrayR5.put(0.0);
-                        jsonArrayR5.put(">=");
-                        jsonArrayR5.put(demandaSorvete);
-
-                        json.put("R" + rests, jsonArrayR5);
+                        json.put("R" + rests, jsonArrayR0);
                         rests++;
-                    }
 
-                    Double demandaPicoleCremoso = Double.parseDouble(edtQtdDemandaPicoleCremoso.getText().toString());
-                    if (demandaPicoleCremoso != 0) {
-                        JSONArray jsonArrayR6 = new JSONArray();
-                        jsonArrayR6.put(0.0);
-                        jsonArrayR6.put(1.0);
-                        jsonArrayR6.put(0.0);
-                        jsonArrayR6.put(">=");
-                        jsonArrayR6.put(demandaPicoleCremoso);
+                        JSONArray jsonArrayR1 = new JSONArray();
+                        jsonArrayR1.put(Double.parseDouble(edtQtdHorasBolaSorvete.getText().toString()));
+                        jsonArrayR1.put(0.0);
+                        jsonArrayR1.put(0.0);
+                        jsonArrayR1.put("<=");
+                        jsonArrayR1.put(Double.parseDouble(edtQtdHorasProducao.getText().toString()) * 60);
 
-                        json.put("R" + rests, jsonArrayR6);
+                        json.put("R" + rests, jsonArrayR1);
                         rests++;
-                    }
 
-                    Double demandaPicoleFruta = Double.parseDouble(edtQtdDemandaPicoleFruta.getText().toString());
-                    if (demandaPicoleFruta != 0) {
-                        JSONArray jsonArrayR7 = new JSONArray();
-                        jsonArrayR7.put(0.0);
-                        jsonArrayR7.put(0.0);
-                        jsonArrayR7.put(1.0);
-                        jsonArrayR7.put(">=");
-                        jsonArrayR7.put(demandaPicoleFruta);
+                        JSONArray jsonArrayR2 = new JSONArray();
+                        jsonArrayR2.put(0.0);
+                        jsonArrayR2.put(Double.parseDouble(edtQtdHorasBolaPicoleCremoso.getText().toString()));
+                        jsonArrayR2.put(Double.parseDouble(edtQtdHorasBolaPicoleFruta.getText().toString()));
+                        jsonArrayR2.put("<=");
+                        jsonArrayR2.put(Double.parseDouble(edtQtdHorasProducao.getText().toString()) * 60);
 
-                        json.put("R" + rests, jsonArrayR7);
+                        json.put("R" + rests, jsonArrayR2);
                         rests++;
-                    }
 
-                    JSONArray jsonArrayR8 = new JSONArray();
-                    jsonArrayR8.put(1.0);
-                    jsonArrayR8.put(1.0);
-                    jsonArrayR8.put(1.0);
-                    jsonArrayR8.put(">=");
-                    jsonArrayR8.put(0.0);
+                        JSONArray jsonArrayR3 = new JSONArray();
+                        jsonArrayR3.put(0.0);
+                        jsonArrayR3.put(1.0);
+                        jsonArrayR3.put(1.0);
+                        jsonArrayR3.put("<=");
+                        jsonArrayR3.put(Double.parseDouble(edtQtdMcUnidadePicole.getText().toString()));
 
-                    json.put("R" + rests, jsonArrayR8);
-                    rests++;
+                        json.put("R" + rests, jsonArrayR3);
+                        rests++;
 
-                    json.put("rests", rests);
+                        JSONArray jsonArrayR4 = new JSONArray();
+                        jsonArrayR4.put(1.0);
+                        jsonArrayR4.put(0.0);
+                        jsonArrayR4.put(0.0);
+                        jsonArrayR4.put("<=");
+                        jsonArrayR4.put(Double.parseDouble(edtQtdFzsBolaSorvete.getText().toString()));
 
-                    StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                            new Response.Listener<String>() {
-                                @Override
-                                public void onResponse(String response) {
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                                    builder.setTitle("Resposta");
-                                    builder.setMessage(response);
-                                    builder.setPositiveButton("OK", null);
-                                    builder.create().show();
+                        json.put("R" + rests, jsonArrayR4);
+                        rests++;
+
+                        Double demandaSorvete = Double.parseDouble(edtQtdDemandaSorvete.getText().toString());
+                        if (demandaSorvete != 0) {
+                            JSONArray jsonArrayR5 = new JSONArray();
+                            jsonArrayR5.put(1.0);
+                            jsonArrayR5.put(0.0);
+                            jsonArrayR5.put(0.0);
+                            jsonArrayR5.put(">=");
+                            jsonArrayR5.put(demandaSorvete);
+
+                            json.put("R" + rests, jsonArrayR5);
+                            rests++;
+                        }
+
+                        Double demandaPicoleCremoso = Double.parseDouble(edtQtdDemandaPicoleCremoso.getText().toString());
+                        if (demandaPicoleCremoso != 0) {
+                            JSONArray jsonArrayR6 = new JSONArray();
+                            jsonArrayR6.put(0.0);
+                            jsonArrayR6.put(1.0);
+                            jsonArrayR6.put(0.0);
+                            jsonArrayR6.put(">=");
+                            jsonArrayR6.put(demandaPicoleCremoso);
+
+                            json.put("R" + rests, jsonArrayR6);
+                            rests++;
+                        }
+
+                        Double demandaPicoleFruta = Double.parseDouble(edtQtdDemandaPicoleFruta.getText().toString());
+                        if (demandaPicoleFruta != 0) {
+                            JSONArray jsonArrayR7 = new JSONArray();
+                            jsonArrayR7.put(0.0);
+                            jsonArrayR7.put(0.0);
+                            jsonArrayR7.put(1.0);
+                            jsonArrayR7.put(">=");
+                            jsonArrayR7.put(demandaPicoleFruta);
+
+                            json.put("R" + rests, jsonArrayR7);
+                            rests++;
+                        }
+
+                        JSONArray jsonArrayR8 = new JSONArray();
+                        jsonArrayR8.put(1.0);
+                        jsonArrayR8.put(1.0);
+                        jsonArrayR8.put(1.0);
+                        jsonArrayR8.put(">=");
+                        jsonArrayR8.put(0.0);
+
+                        json.put("R" + rests, jsonArrayR8);
+                        rests++;
+
+                        json.put("rests", rests);
+
+                        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                                new Response.Listener<String>() {
+                                    @Override
+                                    public void onResponse(String response) {
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                                        builder.setTitle("Resposta");
+                                        builder.setMessage(response);
+                                        builder.setPositiveButton("OK", null);
+                                        builder.create().show();
+                                    }
+                                }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Log.e("VOLLEY", error.toString());
+                            }
+                        }) {
+                            @Override
+                            public String getBodyContentType() {
+                                return "application/json; charset=utf-8";
+                            }
+
+                            @Override
+                            public byte[] getBody() throws AuthFailureError {
+                                try {
+                                    return json.toString() == null ? null : json.toString().getBytes("utf-8");
+                                } catch (UnsupportedEncodingException uee) {
+                                    VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s",
+                                            json.toString(), "utf-8");
+                                    return null;
                                 }
-                            }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Log.e("VOLLEY", error.toString());
-                        }
-                    }) {
-                        @Override
-                        public String getBodyContentType() {
-                            return "application/json; charset=utf-8";
-                        }
-
-                        @Override
-                        public byte[] getBody() throws AuthFailureError {
-                            try {
-                                return json.toString() == null ? null : json.toString().getBytes("utf-8");
-                            } catch (UnsupportedEncodingException uee) {
-                                VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s",
-                                        json.toString(), "utf-8");
-                                return null;
-                            }
-                        }
-
-                        @Override
-                        protected Response<String> parseNetworkResponse(NetworkResponse response) {
-                            String parsed;
-
-                            try {
-                                parsed = new String(response.data, HttpHeaderParser.parseCharset(response.headers));
-                            } catch (UnsupportedEncodingException e) {
-                                parsed = new String(response.data);
                             }
 
-                            return Response.success(parsed, HttpHeaderParser.parseCacheHeaders(response));
-                        }
-                    };
+                            @Override
+                            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                                String parsed;
 
-                    queue.add(stringRequest);
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                                try {
+                                    parsed = new String(response.data, HttpHeaderParser.parseCharset(response.headers));
+                                } catch (UnsupportedEncodingException e) {
+                                    parsed = new String(response.data);
+                                }
+
+                                return Response.success(parsed, HttpHeaderParser.parseCacheHeaders(response));
+                            }
+                        };
+
+                        queue.add(stringRequest);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });

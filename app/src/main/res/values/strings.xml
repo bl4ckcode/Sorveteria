@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sorveteria</string>
+    <string name="app_name">ICML</string>
     <string name="qtd_lucro_sorvete">Qual o lucro obtido com a venda de sorvetes?</string>
     <string name="qtd_lucro_picole_cremoso">E o lucro para picolés cremosos?</string>
     <string name="qtd_lucro_picole_fruta">E o lucro para picolés de fruta?</string>
@@ -16,4 +16,5 @@
     <string name="qtd_demanda_picoles_cremosos">E de picolés cremosos?</string>
     <string name="qtd_demanda_picoles_fruta">E de picolés de fruta?</string>
     <string name="calcular_solucao">Calcular solução</string>
+    <string name="preencher_campos">Por favor, preencha todos os campos!</string>
 </resources>
