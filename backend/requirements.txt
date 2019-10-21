@@ -7,6 +7,6 @@ Jinja2==2.9.6
 MarkupSafe==1.0
 numpy==1.13.3
 pycurl==7.43.0
-Werkzeug==0.10.1
+Werkzeug==0.15.3
 ply==3.4
 swiglpk==1.4.4
